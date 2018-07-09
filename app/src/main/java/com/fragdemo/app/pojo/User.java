@@ -2,49 +2,49 @@ package com.fragdemo.app.pojo;
 
 public class User {
 
-    String username;
-    String place;
-    String country;
-    String state;
-    String city;
+    public static String username;
+    public static String place;
+    public static String country;
+    public static String state;
+    public static String city;
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static void setUsername(String username) {
+        User.username = username;
     }
 
-    public String getPlace() {
+    public static String getPlace() {
         return place;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public static void setPlace(String place) {
+        User.place = place;
     }
 
-    public String getCountry() {
+    public static String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public static void setCountry(String country) {
+        User.country = country;
     }
 
-    public String getState() {
+    public static String getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public static void setState(String state) {
+        User.state = state;
     }
 
-    public String getCity() {
+    public static String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public static void setCity(String city) {
+        User.city = city;
     }
 }

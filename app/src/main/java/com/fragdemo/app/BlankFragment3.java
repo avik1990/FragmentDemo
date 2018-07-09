@@ -8,16 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fragdemo.app.pojo.User;
-import com.squareup.otto.Produce;
 import com.squareup.otto.Subscribe;
 
 
-public class BlankFragment2 extends Fragment implements View.OnClickListener {
+public class BlankFragment3 extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,11 +25,8 @@ public class BlankFragment2 extends Fragment implements View.OnClickListener {
     private String mParam2;
     TextView tv_value;
     private OnFragmentInteractionListener mListener;
-    SendMessage SM;
-    Button btn_senddata;
-    EditText et_getinput;
 
-    public BlankFragment2() {
+    public BlankFragment3() {
         // Required empty public constructor
     }
 
@@ -47,40 +41,15 @@ public class BlankFragment2 extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_blank_2, container, false);
+        //Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_blank_3, container, false);
         tv_value = view.findViewById(R.id.tv_value);
-        btn_senddata = view.findViewById(R.id.btn_senddata);
-        et_getinput = view.findViewById(R.id.et_getinput);
-        btn_senddata.setOnClickListener(this);
         mContext = getActivity();
         this.setRetainInstance(true);
         return view;
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v == btn_senddata) {
-            if (!et_getinput.getText().toString().trim().isEmpty()) {
-                MainActivity.vPager.setCurrentItem(2);
-                SM.sendData(et_getinput.getText().toString().trim());
-            }
-        }
-    }
 
-    interface SendMessage {
-        void sendData(String message);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        try {
-            SM = (SendMessage) context;
-        } catch (Exception e) {
-           // e.printStackTrace();
-             throw new ClassCastException("Error in retrieving data. Please try again");
-        }
-    }
     /*@Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -124,11 +93,6 @@ public class BlankFragment2 extends Fragment implements View.OnClickListener {
         EventBusInit.getBus().unregister(this);
     }
 
-    @Produce
-    public User produceEvent() {
-        return new User();
-    }
-
     @Subscribe
     public void getResult(User switchboard) {
         //Toast.makeText(mContext, switchboard.getCountry(), Toast.LENGTH_SHORT).show();
@@ -140,5 +104,9 @@ public class BlankFragment2 extends Fragment implements View.OnClickListener {
         } catch (Exception e) {
             //e.printStackTrace();
         }
+    }
+
+    protected void displayReceivedData(String message) {
+        tv_value.setText("Data received: " + message);
     }
 }

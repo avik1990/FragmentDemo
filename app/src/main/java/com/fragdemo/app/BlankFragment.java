@@ -5,12 +5,14 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.fragdemo.app.databinding.FragmentBlankBinding;
 import com.fragdemo.app.pojo.User;
+import com.squareup.otto.Subscribe;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -128,6 +130,14 @@ public class BlankFragment extends Fragment implements View.OnClickListener {
     public void onPause() {
         super.onPause();
         EventBusInit.getBus().unregister(this);
+    }
 
+    @Subscribe
+    public void getMessage(User switchboard) {
+        try {
+            Log.e("TAG", switchboard.getCountry());
+        }catch (Exception e){
+
+        }
     }
 }

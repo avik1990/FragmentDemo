@@ -10,22 +10,16 @@
     <TextView
         android:id="@+id/tv_value"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Test" />
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    <EditText
-        android:id="@+id/et_getinput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Message to pass"
-        android:layout_below="@+id/tv_value"
-        android:layout_marginTop="20dp" />
-
-    <Button
-        android:id="@+id/btn_senddata"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_getinput"
-        android:layout_marginTop="20dp"
-        android:text="Send Data" />
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp" />
 </RelativeLayout>
